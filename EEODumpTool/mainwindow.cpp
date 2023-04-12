@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 
 #include <QFileDialog>
+#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -94,7 +95,9 @@ void MainWindow::getAllFiles(const QString &dirPath, QStringList &fileList)
             unsigned tmp = logFile.indexOf(".dmp");
             logFile = logFile.left(tmp);
 
-            fileList.append(logFile + ".xlog.log");
+//            fileList.append(logFile + ".xlog.log");
+            fileList.append(logFile + ".dmp");
+//            fileList.append(logFile);
         }
     }
 }
@@ -192,7 +195,7 @@ void MainWindow::on_pushButton_4_clicked()
     int index = 1;
     foreach (auto item, fileList) {
         qDebug() << item;
-        copyFile(item, outPutDir + QString::number(index++) + ".txt", true);
+        copyFile(item, outPutDir + QFileInfo(item).fileName(), true);
     }
 }
 

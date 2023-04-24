@@ -3,4 +3,5 @@ TEMPLATE = subdirs
 SUBDIRS += \
     CatchDmpFile \
     CommonTestDemo \
-    EEODumpTool
+    EEODumpTool \
+    FeatureDemo
